@@ -1,6 +1,9 @@
 @echo off
-rem Запуск бэкенда
-start cmd /k "cd %~dp0backend && uvicorn main:app --reload"
+rem Запуск бэкенда в скрытом окне
+start /B cmd /c "cd %~dp0backend && uvicorn main:app --reload"
 
-rem Запуск фронтенда
-start cmd /k "cd %~dp0frontend && npm start"
+rem Запуск фронтенда в скрытом окне
+start /B cmd /c "cd %~dp0frontend && npm start"
+
+rem Закрытие текущего окна
+exit
